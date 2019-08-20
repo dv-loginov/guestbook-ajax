@@ -1,5 +1,5 @@
 "use strict";
-const debug=1;
+const debug=0;
 
 ////////////////////////////////////////////////////////
 //              Переключение режима
@@ -36,7 +36,8 @@ document.addEventListener(
             }
         }
 
-        console.log("Action: "+action+" Data: "+data);
+        if (debug){console.log("Action: "+action+" Data: "+data);}
+
         if (!error) {
             e.target.reset();
             ajaxSendData(action, data)

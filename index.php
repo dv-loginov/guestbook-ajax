@@ -1,7 +1,7 @@
 <?php
     session_name('isAuth');
     session_start();
-    define('JQUERY',0);
+    define('JQUERY',1);
 
     require_once "lib/functions.php";
     require_once "lib/gb.php";
