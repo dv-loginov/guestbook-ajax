@@ -2,7 +2,6 @@
     session_name('isAuth');
     session_start();
     define('JQUERY',1);
-
     require_once "lib/functions.php";
     require_once "lib/gb.php";
 
@@ -22,62 +21,70 @@
        }
     }
 ?>
+<!doctype html>
+<html lang="ru">
 
-<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GuestBook</title>
 
-<link rel="stylesheet" type="text/css" href="gb.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" type="text/css" href="css/toggle-buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/gb.css">
+</head>
 <?php if(JQUERY):?>
     <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous">
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
 
     </script>
 <?php endif?>
-
 <body>
-    <div class="wrap">
-        <div class="mode">
-            <a href="/" class="mode_user">Режим пользователя</a>
-            <a href="/" class="mode_admin">Режим администратора</a>
-        </div>
-        <form id="form-add" action="/add" method="POST">
-            <div class="form-group">
-                <label for="name">Имя</label>
-                <input type="text" class="form-control" placeholder="Имя" id="name" name="name">
-            </div>
-            <div class="form-group">
-                <label for="message">Сообщение</label>
-                <input type="text" class="form-control" placeholder="Сообщение" id="messageAdd" name="message">
-            </div>
-            <button type="submit" class="btn" id="btn-add">Отправить</button>
-        </form>
-
-        <div id="errors">
-
-        </div>
-
-        <div id="view-message">
-            <?php $gb->view();?>
+<div class="wrap">
+    <div class="mode">
+        <div class="mode-header">Режим</div>
+        <div class="toggle-btn" id="_2nd-toggle-btn">
+            <input type="checkbox" class="mode-checkbox">
+            <span></span>
         </div>
     </div>
 
-    <script src="gb.js"></script>
+<!--    <form id="formAdd" action="/add" method="POST">-->
+    <form id="formAdd" action="/add">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="inputName"  required name="name">
+            <label class="mdl-textfield__label" for="inputName">Name...</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input"  type="text" id="inputMessage"  required name="message">
+            <label class="mdl-textfield__label" for="inputMessage">Message...</label>
+        </div>
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--primary" id="btn-add">Отправить</button>
+    </form>
+
+    <div id="errors">
+
+    </div>
+
+    <div id="wrap-message">
+          <?php $gb->view();?>
+    </div>
+</div>
+
+<script src="js/gb.js"></script>
     <?php if(JQUERY):?>
-        <script src="ajax_jq.js"></script>
+        <script src="js/ajax_jq.js"></script>
     <?php else: ?>
-        <script src="ajax_js.js"></script>
+        <script src="js/ajax_js.js"></script>
     <?php endif?>
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

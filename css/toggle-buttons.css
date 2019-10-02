@@ -1,0 +1,72 @@
+.toggle-btn {
+    position: relative;
+    width: 110px;
+    height: 37px;
+    margin: 0 auto;
+    border-radius: 40px;
+}
+/*input[type="checkbox"] {*/
+
+.mode-checkbox{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Second toggle btn */
+
+#_2nd-toggle-btn {
+    /*margin: 60px auto 76px auto;*/
+}
+#_2nd-toggle-btn span {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border: 8px solid #b3b3b3;
+    /*border-color: #b3b3b3;*/
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 40px;
+    transition: 0.8s ease border-color;
+}
+#_2nd-toggle-btn span:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #b3b3b3;
+    margin-left: 0px;
+    border-radius: 50%;
+    transform: translate(-8px, 0px);
+    transition: 0.4s ease border-radius, 0.4s ease transform, 0.6s ease width, 0.6s ease margin-left, 0.8s ease border-color;
+}
+#_2nd-toggle-btn input[type="checkbox"]:active+span:before {
+    width: 80px;
+    border-radius: 40px;
+}
+#_2nd-toggle-btn input[type="checkbox"]:checked:active+span:before {
+    margin-left: -22px;
+}
+#_2nd-toggle-btn input[type="checkbox"]:checked+span {
+    border-color: #F50057; /*#000;*/
+}
+#_2nd-toggle-btn input[type="checkbox"]:checked+span:before {
+    border-color: #F50057;
+    transform: translate(63px, 0px);
+}
+
+/* Second toggle btn completed */
+

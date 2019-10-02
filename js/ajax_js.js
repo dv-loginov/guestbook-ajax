@@ -16,7 +16,7 @@ function ajaxSendData(action,data){
 
 function transferComplete(){
     if(debug){ console.log("Получен ответ: "+xhr.responseText);}
-    document.querySelector("#view-message").innerHTML=xhr.responseText;
+    document.querySelector("#wrap-message").innerHTML=xhr.responseText;
 }
 
 function transferFailed(){

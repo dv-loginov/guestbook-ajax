@@ -46,26 +46,27 @@ class GB
 
                     <div class="view-id">id=<?=$record->id ?>
                     <?php if (session_id()=='true'):?>
-                        <form  class="form-del " action="/del" method="POST" name="delete">
-                            <input type="hidden" id="userId" name="id" value="<?=$record->id?>">
-                            <button type="submit" class="btn-del">Удалить</button>
+                        <form  class="form-del" action="/del">
+                            <input type="hidden" name="id" value="<?=$record->id?>">
+                            <button type="submit" class="mdl-button mdl-js-button mdl-button--accent">Удалить</button>
                         </form>
                     <?php endif;?>
                     </div>
+                    <?php endif;?>
 
-                <?php endif;?>
+                    <div class="view-name"><?=$record->name ?></div>
 
-                <div class="view-name"><?=$record->name ?></div>
-
-                <div class="view-message"><?=$record->message ?></div>
-
+                    <div class="view-message"><?=$record->message ?></div>
 
                 <?php if (session_id()=='true'):?>
                     <?php if (is_null($record->answer)):?>
                         <form class="form-answer" action="/addAnswer" method="POST">
                             <input type="hidden" id="userId" name="id" value="<?=$record->id?>">
-                            <input type="text" class="form-control" placeholder="Ответ" id="messageAnswer" value="" name="answer">
-                            <button type="submit" class="btn">Ответить</button>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input"  type="text" id="messageAnswer"  required name="answer">
+                                <label class="mdl-textfield__label" for="messageAnswer">Answer...</label>
+                            </div>
+                            <button type="submit" class="mdl-button mdl-js-button mdl-button--primary">Ответить</button>
                         </form>
                     <?php endif;?>
 

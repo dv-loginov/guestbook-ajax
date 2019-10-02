@@ -9,7 +9,7 @@ function ajaxSendData(action,dataForm){
         cache: false,
         dataType: "html",
         success: function(html) {
-            $("#view-message").html(html);
+            $("#wrap-message").html(html);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             $("#errors").html(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
